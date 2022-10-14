@@ -1,0 +1,23 @@
+{
+  "name": "howler-promise",
+  "version": "1.0.0",
+  "description": "Howler.js instance wrapped in a promise, for those who like promises instead of callbacks.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amypellegrini/howler-promise.git"
+  },
+  "keywords": [
+    "howler",
+    "promise"
+  ],
+  "author": "Amy Pellegrini <amyvpellegrini@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amypellegrini/howler-promise/issues"
+  },
+  "homepage": "https://github.com/amypellegrini/howler-promise#readme"
+}
