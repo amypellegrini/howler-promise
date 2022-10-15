@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "test",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,21 @@
     "url": "https://github.com/amypellegrini/howler-promise/issues"
   },
   "homepage": "https://github.com/amypellegrini/howler-promise#readme",
+  "release": {
+    "branches": [
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
+  },
   "dependencies": {
     "howler": "^2.2.3"
   },
