@@ -1,6 +1,7 @@
 {
   "exclude": ["**/*.test.ts", "./src/__tests__/*.ts", "./*.ts"],
   "compilerOptions": {
+    "declaration": true,
     "esModuleInterop": true,
     "outDir": "dist"
   }
