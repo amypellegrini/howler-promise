@@ -1,7 +1,7 @@
 import { Howl, HowlOptions } from "howler";
 
 export default function loadSound(options: HowlOptions) {
-  const promise = new Promise((resolve, reject) => {
+  const promise = new Promise<Howl>((resolve, reject) => {
     const sound = new Howl({
       ...options,
       onload: (soundId) => {
