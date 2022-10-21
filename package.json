@@ -2,7 +2,8 @@
   "name": "howler-promise",
   "version": "1.0.0",
   "description": "Howler.js instance wrapped in a promise, for those who like promises instead of callbacks.",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "files": ["/dist"],
   "scripts": {
     "test": "jest",
     "build": "tsc"
