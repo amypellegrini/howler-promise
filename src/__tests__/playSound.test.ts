@@ -3,7 +3,20 @@ import { Howl } from "howler";
 
 import playSound from "../playSound";
 
+function delay(fn: (args: unknown) => void, args?: unknown) {
+  setTimeout(() => {
+    fn(args);
+  }, 100);
+}
+
 const mockPlay = vi.fn();
+
+const sound = {
+  play: mockPlay,
+  on: (event: string, handler) => {
+    delay(handler);
+  },
+} as unknown as Howl;
 
 describe("playSound", () => {
   beforeEach(() => {
@@ -11,22 +24,21 @@ describe("playSound", () => {
   });
 
   it("returns a promise", () => {
-    const sound = {
-      play: mockPlay,
-    } as unknown as Howl;
-
     const promise = playSound(sound);
 
     expect(promise).toBeInstanceOf(Promise);
   });
 
   it("plays a sound", () => {
-    const sound = {
-      play: mockPlay,
-    } as unknown as Howl;
-
     playSound(sound);
 
     expect(mockPlay).toHaveBeenCalled();
+  });
+
+  it("resolves promise with sound when playing ends", async () => {
+    const resolvedSound = await playSound(sound);
+
+    expect(resolvedSound).not.toBeInstanceOf(Promise);
+    expect(resolvedSound).toEqual(sound);
   });
 });
