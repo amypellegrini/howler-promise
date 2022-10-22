@@ -1,5 +1,6 @@
 import { Howl } from "howler";
 import loadSound from "../loadSound";
+import { vi, describe, it, expect } from "vitest";
 
 function MockHowl({ src, onload, onloaderror }) {
   if (src === "valid-source.mp3") {
@@ -15,7 +16,7 @@ function MockHowl({ src, onload, onloaderror }) {
   }
 }
 
-jest.mock("howler", () => {
+vi.mock("howler", () => {
   return {
     Howl: MockHowl,
   };
@@ -49,7 +50,7 @@ describe("loadSound", () => {
   });
 
   it('should call "onload" handler if provided', async () => {
-    const mockOnload = jest.fn();
+    const mockOnload = vi.fn();
 
     await loadSound({
       onload: mockOnload,
@@ -60,7 +61,7 @@ describe("loadSound", () => {
   });
 
   it('should call "onloaderror" handler if provided', async () => {
-    const mockOnLoadError = jest.fn();
+    const mockOnLoadError = vi.fn();
 
     try {
       await loadSound({
