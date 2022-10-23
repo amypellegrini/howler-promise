@@ -6,6 +6,10 @@ export default function playSound(sound: Howl): Promise<Howl> {
       resolve(sound);
     });
 
+    sound.on("playerror", (id, error) => {
+      reject(error);
+    });
+
     sound.play();
   });
 }
