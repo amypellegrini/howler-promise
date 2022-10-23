@@ -1,8 +1,9 @@
 {
-  "exclude": ["**/*.test.ts", "./src/__tests__/*.ts", "./*.ts"],
+  "exclude": ["**/*.test.ts", "./src/__tests__/*.ts", "./*.ts", "dist/**/*"],
   "compilerOptions": {
     "declaration": true,
     "esModuleInterop": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "types": ["vitest/globals"]
   }
 }
